@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Task Stages -->
+    <record id="project_stage_sign_contract" model="project.project.stage">
+        <field name="sequence">10</field>
+        <field name="name">Sign Contract</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+    <record id="project_stage_develop_and_test_research_material" model="project.project.stage">
+        <field name="sequence">20</field>
+        <field name="name">Develop and Test Research Material</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+    <record id="project_stage_notify_dp_and_qc" model="project.project.stage">
+        <field name="sequence">30</field>
+        <field name="name">Notify DP and QC</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+    <record id="project_stage_launch_the_fieldwork" model="project.project.stage">
+        <field name="sequence">40</field>
+        <field name="name">Launch The Field Work</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+
+    <record id="project_stage_reporting_and_analysis" model="project.project.stage">
+        <field name="sequence">50</field>
+        <field name="name">Reporting and Analysis</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+
+    <record id="project_stage_present_and_discuss_the_results" model="project.project.stage">
+        <field name="sequence">60</field>
+        <field name="name">Present and Discuss The Result</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+
+    <record id="project_stage_send_the_final_invoice" model="project.project.stage">
+        <field name="sequence">70</field>
+        <field name="name">Send the Final Invoice</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+
+    <record id="project_stage_send_feedback" model="project.project.stage">
+        <field name="sequence">80</field>
+        <field name="name">Send Feedback</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+
+</odoo>

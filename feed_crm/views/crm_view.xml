@@ -1,0 +1,283 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_crm_lead_form_inherit">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" type="object" name="action_view_project_quotation" string="Project"
+                            icon="fa-file">
+                        <!--                        <field string="Project" name="project_count" widget="statinfo" force_save="1"/>-->
+                    </button>
+
+                    <button class="oe_stat_button" type="object" name="action_view_field_requirement"
+                            string="Field Requirement" attrs="{'invisible': [('type', '=', 'lead')]}"
+                            icon="fa-globe">
+                        <field name="field_count" widget="statinfo" force_save="1"/>
+                    </button>
+
+
+                    <button class="oe_stat_button" type="object" name="action_view_client_quote"
+                            string="Client Quote" attrs="{'invisible': [('type', '=', 'lead')]}"
+                            icon="fa-globe">
+                        <field name="client_quote_count" widget="statinfo" force_save="1"/>
+                    </button>
+                    <button class="oe_stat_button" type="object" name="action_view_proposal"
+                            string="Proposal"
+                            icon="fa-globe" attrs="{'invisible': [('type', '=', 'lead')]}">
+                        <field name="proposal_count" widget="statinfo" force_save="1"/>
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='medium_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!--                <xpath expr="//notebook//page[@name='rfp']" position="after">-->
+                <!--                    <page name="lead" position="move"/>-->
+                <!--&lt;!&ndash;                    <attribute name="possition">after</attribute>&ndash;&gt;-->
+                <!--                </xpath>-->
+
+                <xpath expr="//notebook//page[@name='lead']//group[1]//group[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <xpath expr="//group[1]//group[1]//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Client</attribute>
+
+                </xpath>
+                <!--                                <xpath expr="//button[@name='action_view_sale_quotation']" position="attributes">-->
+                <!--                                    <attribute name="invisible">1</attribute>-->
+                <!--                                </xpath>-->
+                <xpath expr="//field[@name='contact_name']" position="attributes">
+                    <attribute name="string">Client</attribute>
+
+                </xpath>
+                <xpath expr="//group[1]//group[2]//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Client</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="string">Project Lead</attribute>
+                </xpath>
+                <xpath expr="//field[@name='priority']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[1]//group[@name='lead_priority']//field[@name='priority']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page[@name='extra']" position="after">
+                    <page name="rfp" string="RFP" attrs="{'invisible': [('type', '=', 'lead')]}">
+                        <group>
+                            <group string="ESSENTIAL INFORMATION"
+                                   style="font-size: 15px;">
+                                <field name="rfp_number" string="RFP Number (Client)"/>
+                                <field name="company_id"/>
+                                <field name="job_number"/>
+                                <field name="attachment_id" widget="many2many_binary"/>
+                                <field name="prop_submission_dline"/>
+                            </group>
+
+                            <group string="______________________">
+                                <field name="scope_of_work"/>
+                                <field name="submission_mode"/>
+                                <field name="submission_format"/>
+                                <field name="finance_email"/>
+
+                            </group>
+
+                            <group string="TEAM" style="font-size: 15px;">
+                                <field name="employee_id"/>
+                                <field name="proposal_writer"/>
+                            </group>
+
+                            <group string="INQUIRIES">
+                                <field name="inquiry_deadline"/>
+                                <field name="inquiry_email"/>
+                            </group>
+
+                            <group string="TENDER AND PERFORMANCE BOND" style="font-size: 15px;">
+                                <field name="tender" widget="radio" string="Tender Bond"
+                                       options="{'horizontal': true}"/>
+                                <field name="performance_bond" widget="radio" options="{'horizontal': true}"/>
+
+                                <field name="crm_state" invisible="1" force_save="1"/>
+                            </group>
+                            <group name="tender_performance_bond">
+                                <separator string="Tender Bond" attrs="{'invisible': [('tender', '!=', 'yes')]}"/>
+                                <field name="method" attrs="{'invisible': [('tender', '!=', 'yes')]}"/>
+                                <field name="release_date" attrs="{'invisible': [('tender', '!=', 'yes')]}"/>
+                                <field name="amount" attrs="{'invisible': [('tender', '!=', 'yes')]}"/>
+                                <field name="rfp_currency" attrs="{'invisible': [('tender', '!=', 'yes')]}"/>
+                                <field name="tender_desc" attrs="{'invisible': [('tender', '!=', 'yes')]}"/>
+
+                                <separator string="Performance Bond"
+                                           attrs="{'invisible': [('performance_bond', '!=', 'yes')]}"/>
+                                <field name="performance_method" string="Method"
+                                       attrs="{'invisible': [('performance_bond', '!=', 'yes')]}"/>
+                                <field name="performance_release_date" string="Release Date"
+                                       attrs="{'invisible': [('performance_bond', '!=', 'yes')]}"/>
+                                <field name="performance_amount" string="Amount"
+                                       attrs="{'invisible': [('performance_bond', '!=', 'yes')]}"/>
+                                <field name="performance_rfp_currency" string="Currency"
+                                       attrs="{'invisible': [('performance_bond', '!=', 'yes')]}"/>
+                                <field name="performance_bond_desc"
+                                       attrs="{'invisible': [('performance_bond', '!=', 'yes')]}"/>
+                            </group>
+
+                        </group>
+                    </page>
+                    <page name="lead" position="move"/>
+
+                    <page name="project_module" string="Project Modules"
+                          attrs="{'invisible': [('type', '=', 'lead')]}">
+                        <field name="field_line">
+                            <tree editable="bottom">
+                                <field name="module"/>
+                                <field name="field_required"/>
+                                <field name="type"/>
+                                <field name="methodology"/>
+                                <field name="details"/>
+                                <field name="sample"/>
+                                <field name="country" widget="many2many_tags"/>
+                                <field name="amount_total" string="Field Cost" sum="Field Cost" readonly="False"
+                                       attrs="{'readonly': [('field_required', '=', 'yes')]}"/>
+                                <field name="currency"/>
+                                <field name="multiplier" sum="Multiplier" invisible="1"/>
+                                <field name="project_revenue" string="Total Cost" sum="Total Cost" force_save="1"
+                                       invisible="1"/>
+                                <field name="margin" string=" Field Margin %" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="total_cost" string="Total Cost" attrs="{'invisible': [('type', '=', 'lead')]}">
+                        <field name="total_cost">
+                            <tree editable="bottom">
+                                <field name="module"/>
+                                <field name="type" invisible="1"/>
+                                <field name="field_line_id" invisible="1"/>
+                                <field name="currency"/>
+                                <field name="cost"/>
+                                <field name="multiplier"/>
+                                <field name="total_cost" sum="Total estimate cost" force_save="1"/>
+                            </tree>
+                        </field>
+
+                    </page>
+
+                    <page name="client_quote" string="Client Quote"
+                          attrs="{'invisible': [('type', '=', 'lead')]}">
+                        <field name="client_quote">
+                            <tree editable="bottom">
+                                <field name="item" invisible="1"/>
+                                <field name="module"/>
+                                <field name="type" invisible="1"/>
+                                <field name="field_line_id" invisible="1"/>
+                                <field name="currency"/>
+                                <field name="cost" sum="Total estimate cost"/>
+                                <field name="margin" string="Margin%"/>
+                                <field name="client_quote" sum="Total estimate cost" force_save="1"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <group>
+                                <field name="total_cost_margin" force_save="1" invisible="1"/>
+                                <field name="total_cost_margin_per" force_save="1"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page name="field" string="Invoices Schedule"
+                          attrs="{'invisible': [('type', '=', 'lead')]}">
+                        <field name="feed_invoice_line">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="project_name"/>
+                                <field name="milestone"/>
+                                <field name="invoice_amount" string="Invoice Amount"/>
+                                <field name="percentage"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="internal_notes" position="move"/>
+                </xpath>
+
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                    <button string="Create Project" name="action_create_new_project" type="object"
+                            class="oe_highlight"
+                            title="Create Project"/>
+                </xpath>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="is_field_required" widget="radio" invisible="1"/>
+                    <field name="is_invoice_schedule" widget="radio" invisible="1"/>
+                    <field name="project_id" invisible="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_crm_stage_form_inherit">
+            <field name="name">crm.stage.form.inherit</field>
+            <field name="model">crm.stage</field>
+            <field name="inherit_id" ref="crm.crm_stage_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='is_won']" position="before">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="seq_crm_lead_number_id" model="ir.sequence">
+            <field name="name">project.number</field>
+            <field name="code">crm.lead.seq</field>
+            <field name="prefix">JN</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+    <record model="ir.ui.view" id="inherit_crm_for_quotation_btn">
+        <field name="name">inherit_crm_for_quotation_btn</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <button name="action_sale_quotations_new" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+            <button name="action_view_sale_quotation" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+        </field>
+    </record>
+
+</odoo>
+        <!--<notebook>-->
+        <!--<page string="Internal Notes" name="internal_notes">-->
+        <!--    <field name="description" placeholder="Add a description..." options="{'collaborative': true}"/>-->
+        <!--</page>-->
+        <!--        <page name="extra" string="Extra Info" attrs="{'invisible': [('type', '=', 'opportunity')]}">-->
+        <!--            <group>-->
+        <!--                <group string="Email" groups="base.group_no_one">-->
+        <!--                    <field name="message_bounce" readonly="1"/>-->
+        <!--                </group>-->
+        <!--                <group string="Marketing" name="categorization">-->
+        <!--                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>-->
+        <!--                    <field name="campaign_id" options="{'create_name_field': 'title', 'always_reload': True}"/>-->
+        <!--                    <field name="medium_id"/>-->
+        <!--                    <field name="source_id"/>-->
+        <!--                    <field name="referred"/>-->
+        <!--                </group>-->
+        <!--                <group string="Analysis">-->
+        <!--                    <field name="date_open"/>-->
+        <!--                    <field name="date_closed"/>-->
+        <!--                </group>-->
+        <!--            </group>-->
+        <!--        </page>-->
+        <!--</notebook>-->

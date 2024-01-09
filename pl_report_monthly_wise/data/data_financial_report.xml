@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Financial Reports -->
+        <record id="ins_account_financial_report_profitandlossmothwise0"
+                model="ins.account.financial.report">
+            <field name="name">Profit and Loss (Comparision Month wise)</field>
+            <field name="type">sum</field>
+            <field name="sign">-1</field>
+        </record>
+        
+        <record id="ins_account_financial_report_profitandlossanalyticswise0"
+                model="ins.account.financial.report">
+            <field name="name">Profit and Loss (Comparision Analytics wise)</field>
+            <field name="type">sum</field>
+            <field name="sign">-1</field>
+        </record>
+        
+        
+    </data>
+</odoo>

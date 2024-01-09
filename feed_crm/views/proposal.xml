@@ -1,0 +1,102 @@
+<odoo>
+    <data>
+        <record id="feed_proposal_form" model="ir.ui.view">
+            <field name="name">feed_proposal_form</field>
+            <field name="model">feed.proposal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <!--                        FOR DRAFT USERS ONLY-->
+                        <button name="btn_change_to_manager_approval" string="Send To Manger Approval" type="object"
+                                class="btn-primary" attrs="{'invisible':[('state','!=','draft')]}"
+                                groups="feed_crm.field_budget_draft_access"/>
+
+                        <!--                        FOR MANAGER USER ONLY-->
+                        <button name="btn_manager_approved" string="Approved" type="object" class="btn-primary"
+                                attrs="{'invisible':[('state','!=','manager_approval')]}"
+                                groups="feed_crm.field_budget_manager_access"/>
+
+                        <button name="btn_manager_return_back" string="Return back" type="object"
+                                class="btn-primary"
+                                attrs="{'invisible':[('state','!=','manager_approval')]}"
+                                groups="feed_crm.field_budget_manager_access"/>
+
+                        <!--                        FOR RESEARCH USERS ONLY-->
+                        <button name="btn_research_approved" string="Approved" type="object" class="btn-primary"
+                                attrs="{'invisible':[('state','!=','research_approval')]}"
+                                groups="feed_crm.field_budget_research_access"/>
+
+                        <button name="btn_research_return_back" string="Return back" type="object"
+                                class="btn-primary"
+                                attrs="{'invisible':[('state','!=','research_approval')]}"
+                                groups="feed_crm.field_budget_research_access"/>
+
+                        <!--                        FOR DRAFT USERS ONLY-->
+                        <button name="btn_sent_to_client" string="Send To Client" type="object" class="btn-primary"
+                                attrs="{'invisible':[('state','!=','approved')]}"
+                                groups="feed_crm.field_budget_draft_access"/>
+
+                        <button name="btn_reset_to_draft" string="Reset To Draft" type="object" class="btn-primary"
+                                attrs="{'invisible':[('state','!=','sent_to_client')]}"
+                                groups="feed_crm.field_budget_draft_access"/>
+
+                        <button name="btn_change_from_review" string="To Approve" type="object" class="btn-primary"
+                                attrs="{'invisible':[('state','!=','for_review')]}"
+                                groups="feed_crm.field_budget_draft_access"/>
+
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_crm_record"
+                                    string="Opportunity"
+                                    icon="fa-file">
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="attachment_id" widget="many2many_binary" required="1"/>
+                                <field name="feedback"
+                                       attrs="{'invisible':[('state','not in',('manager_approval','for_review'))]}"/>
+                                <field name="finance_feedback"
+                                       attrs="{'invisible':[('state','not in',('research_approval','for_review'))]}"/>
+                                <field name="crm_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="follow_up_date" attrs="{'invisible':[('state','!=','sent_to_client')]}"/>
+                                <field name="client_decision_date"
+                                       attrs="{'invisible':[('state','!=','sent_to_client')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="feed_proposal_tree" model="ir.ui.view">
+            <field name="name">feed_proposal_tree</field>
+            <field name="model">feed.proposal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="feedback"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="feed_proposal_action" model="ir.actions.act_window">
+            <field name="name">Review Proposal</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">feed.proposal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="feed_proposal_menu" name="Proposal" parent="crm.crm_menu_root"
+                  action="feed_proposal_action" sequence="7"/>
+    </data>
+</odoo>

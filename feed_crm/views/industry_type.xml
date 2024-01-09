@@ -1,0 +1,26 @@
+<odoo>
+
+    <record model="ir.ui.view" id="feet_industry_form">
+        <field name="name">feet_industry_form</field>
+        <field name="model">feed.industry</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <gruop>
+                        <group>
+                            <field name="name"/>
+                            <field name="industry_type"/>
+                        </group>
+                    </gruop>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="feet_industry_action_window">
+        <field name="name">Industry Type</field>
+        <field name="res_model">feed.industry</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

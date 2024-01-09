@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--# -*- coding: utf-8 -*-
+##############################################################################
+#
+#       Odoo Proprietary License v1.0
+#
+#       This software and associated files (the "Software") may only be used (executed,
+#       modified, executed after modifications) if you have purchased a valid license
+#       from the authors, typically via Odoo Apps, or if you have received a written
+#       agreement from the authors of the Software (see the COPYRIGHT file).
+#
+#       You may develop Odoo modules that use the Software as a library (typically
+#       by depending on it, importing it and using its resources), but without copying
+#       any source code or material from the Software. You may distribute those
+#       modules under the license of your choice, provided that this license is
+#       compatible with the terms of the Odoo Proprietary License (For example:
+#       LGPL, MIT, or proprietary licenses similar to this one).
+#
+#       It is forbidden to publish, distribute, sublicense, or sell copies of the Software
+#       or modified copies of the Software.
+#
+#       The above copyright notice and this permission notice must be included in all
+#       copies or substantial portions of the Software.
+#
+#       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#       IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#       FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+#       IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+#       DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+#       ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#       DEALINGS IN THE SOFTWARE.
+#
+##############################################################################-->
+<templates>
+    <t t-name="grid.GridArrows">
+        <div>
+            <button t-if="widget.allowCreate" class="btn btn-md btn-primary o_button_add_grid" type="button">
+                Add a Line
+            </button>
+            <div t-if="widget._buttons.length" class="btn-group btn-group-md">
+                <button t-foreach="widget._buttons" t-as="btn"
+                        t-attf-class="grid_button_arrow btn btn-md {{ btn['class'] || 'btn-default' }}"
+                        type="button" t-att-data-index="btn_index">
+                    <t t-esc="btn.string"/>
+                </button>
+            </div>
+            <button class="grid_previous_arrow btn btn-md btn-primary hidden"
+                    type="button">
+                <span class="fa fa-arrow-left"/>
+            </button>
+            <button class="btn btn-md btn-primary grid_initial_button hidden" type="button">
+                Today
+            </button>
+            <button class="grid_next_arrow btn btn-md btn-primary hidden"
+                    type="button">
+                <span class="fa fa-arrow-right"/>
+            </button>
+            <div t-if="widget._ranges.length > 1" class="btn-group btn-group-md">
+                <button t-foreach="widget._ranges" t-as="range"
+                        class="grid_range_arrow btn btn-md btn-default"
+                        type="button" t-att-data-name="range.name">
+                    <t t-esc="range.string"/>
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>

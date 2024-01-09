@@ -1,0 +1,73 @@
+<odoo>
+    <record model="ir.module.category" id="field_budget_group_category">
+        <field name="name">Field Budget</field>
+        <!--        <field name="description">User access levels for Overtime module</field>-->
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="field_budget_draft_access" model="res.groups">
+        <field name="name">Draft User</field>
+        <field name="category_id" ref="field_budget_group_category"/>
+    </record>
+
+    <record id="field_budget_finance_access" model="res.groups">
+        <field name="name">Finance User</field>
+        <field name="category_id" ref="field_budget_group_category"/>
+    </record>
+
+    <record id="field_budget_research_access" model="res.groups">
+        <field name="name">Research User</field>
+        <field name="category_id" ref="field_budget_group_category"/>
+    </record>
+
+    <record id="field_budget_manager_access" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="field_budget_group_category"/>
+    </record>
+
+    <!-- Model Access Rights -->
+    <record model="ir.model.access" id="field_budget_finance_access_read">
+        <field name="name">Finance User Access</field>
+        <field name="model_id" ref="model_feed_crm_field"/> <!-- Replace with your actual model's reference -->
+        <field name="group_id" ref="field_budget_finance_access"/>
+        <field name="perm_read" eval="1"/>
+        <!-- Add other permissions as needed (perm_write, perm_create, perm_unlink) -->
+    </record>
+
+    <record model="ir.model.access" id="field_budget_research_read">
+        <field name="name">Research User Access</field>
+        <field name="model_id" ref="model_feed_crm_field"/> <!-- Replace with your actual model's reference -->
+        <field name="group_id" ref="field_budget_research_access"/>
+        <field name="perm_read" eval="1"/>
+        <!-- Add other permissions as needed (perm_write, perm_create, perm_unlink) -->
+    </record>
+
+
+    <record model="ir.model.access" id="field_budget_draft_access_read">
+        <field name="name">Draft User Access</field>
+        <field name="model_id" ref="model_feed_crm_field"/> <!-- Replace with your actual model's reference -->
+        <field name="group_id" ref="field_budget_draft_access"/>
+        <field name="perm_read" eval="1"/>
+        <!-- Add other permissions as needed (perm_write, perm_create, perm_unlink) -->
+    </record>
+
+    <record model="ir.model.access" id="field_budget_manager_access_read">
+        <field name="name">Manager Access</field>
+        <field name="model_id" ref="model_feed_crm_field"/> <!-- Replace with your actual model's reference -->
+        <field name="group_id" ref="field_budget_manager_access"/>
+        <field name="perm_read" eval="1"/>
+        <!-- Add other permissions as needed (perm_write, perm_create, perm_unlink) -->
+    </record>
+
+<!--    <record id="rule_hide_confirm_button" model="ir.rule">-->
+<!--        <field name="name">Hide Confirm Button for Non-Finance Users</field>-->
+<!--        <field name="model_id" ref="model_account_move"/>-->
+<!--        <field name="domain_force">[('state', 'not in', ('posted', 'cancel'))]</field>-->
+<!--        <field name="groups" eval="[(4, ref('feed_crm.field_budget_finance_access'))]"/>-->
+<!--        <field name="perm_read" eval="False"/>-->
+<!--        <field name="perm_write" eval="False"/>-->
+<!--        <field name="perm_create" eval="False"/>-->
+<!--        <field name="perm_unlink" eval="False"/>-->
+<!--    </record>-->
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="feed_inherit_hr_employee_form" model="ir.ui.view">
+        <field name="name">feed.inherit.hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='gender']" position="after">
+                <field name="age"/>
+            </xpath>
+            <xpath expr="//field[@name='children']" position="before">
+                <field name="have_children"/>
+            </xpath>
+            <xpath expr="//field[@name='children']" position="attributes">
+                <attribute name="attrs">{'invisible': [('have_children', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='emergency_contact']" position="after">
+                <field name="emergency_person_relation"/>
+            </xpath>
+
+            <xpath expr="//field[@name='country_of_birth']" position="after">
+                <field name="health_condition"/>
+                <separator name="research_experience" string="Research Experience"/>
+                <field name="market_research_experience"/>
+                <field name="research_experience_since"/>
+            </xpath>
+
+            <xpath expr="//field[@name='passport_id']" position="after">
+                <field name="passport_expiry_date"/>
+            </xpath>
+            <xpath expr="//field[@name='has_work_permit']" position="after">
+                <separator name="other_visa" string="Other Visa"/>
+                <field name="visa_status_uae"/>
+                <field name="visa_status_ksa"/>
+                <field name="work_visa"/>
+            </xpath>
+            <xpath expr="//field[@name='identification_id']" position="after">
+                <field name="id_expiry_date"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='personal_information']//group[1]//group[4]" position="after">
+                <group string="Other Informations">
+                    <field name="whn_feedback_join_date"/>
+                    <field name="employee_licence"/>
+                    <separator name="necessary_documents" string="Necessary Documents"/>
+                    <field name="cv"/>
+                    <field name="visa"/>
+                    <field name="id_doc"/>
+                    <field name="passport_doc"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='certificate']" position="after">
+                <field name="education"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

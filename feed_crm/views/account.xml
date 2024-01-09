@@ -1,0 +1,12 @@
+<odoo>
+    <record model="ir.ui.view" id="view_account_move_form_inherit">
+            <field name="name">view_account_move_form_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="crm_line" invisible="1"/>
+            </xpath>
+            </field>
+    </record>
+</odoo>

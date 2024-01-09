@@ -1,0 +1,173 @@
+<odoo>
+    <record id="industry_record_b_and_cm" model="feed.industry">
+        <field name="name">Banking and Capital Markets</field>
+        <field name="industry_type">financial_services</field>
+    </record>
+
+    <record id="industry_record_insurance" model="feed.industry">
+        <field name="name">Insurance</field>
+        <field name="industry_type">financial_services</field>
+    </record>
+
+    <record id="industry_record_investment_management" model="feed.industry">
+        <field name="name">Investment Management</field>
+        <field name="industry_type">financial_services</field>
+    </record>
+
+    <record id="industry_record_real_estate" model="feed.industry">
+        <field name="name">Real Estate</field>
+        <field name="industry_type">financial_services</field>
+    </record>
+
+    <record id="industry_record_civil_government" model="feed.industry">
+        <field name="name">Civil Government</field>
+        <field name="industry_type">gp_and_ss</field>
+    </record>
+
+    <record id="industry_record_ds_and_j" model="feed.industry">
+        <field name="name">Defense Security and Justice</field>
+        <field name="industry_type">gp_and_ss</field>
+    </record>
+
+    <record id="industry_record_federal_health" model="feed.industry">
+        <field name="name">Federal Health</field>
+        <field name="industry_type">gp_and_ss</field>
+    </record>
+
+    <record id="industry_record_ngo_and_charity" model="feed.industry">
+        <field name="name">NGO and Charity</field>
+        <field name="industry_type">gp_and_ss</field>
+    </record>
+
+    <record id="industry_record_sl_and_e" model="feed.industry">
+        <field name="name">State Local and Education</field>
+        <field name="industry_type">gp_and_ss</field>
+    </record>
+
+     <record id="industry_record_a_and_a" model="feed.industry">
+        <field name="name">Automotive and Assembly</field>
+        <field name="industry_type">consumer</field>
+    </record>
+
+    <record id="industry_record_cp_cpg_or_fmcg" model="feed.industry">
+        <field name="name">Consumer Products CPG or FMCG</field>
+        <field name="industry_type">consumer</field>
+    </record>
+
+    <record id="industry_record_rw_and_d" model="feed.industry">
+        <field name="name">Retail Wholesale and Distribution</field>
+        <field name="industry_type">consumer</field>
+    </record>
+
+    <record id="industry_record_tth_and_s" model="feed.industry">
+        <field name="name">Transportation Travel Hospitality and Services</field>
+        <field name="industry_type">consumer</field>
+    </record>
+
+    <record id="industry_record_ip_and_e" model="feed.industry">
+        <field name="name">Industrial products and electronic</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+    <record id="industry_record_ce_and_bm" model="feed.industry">
+        <field name="name">construction engineering and building materials</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+    <record id="industry_record_mining_and_metals" model="feed.industry">
+        <field name="name">Mining and Metals</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+    <record id="industry_record_o_and_g_and_c" model="feed.industry">
+        <field name="name">Oil and Gas and Chemicals</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+     <record id="industry_record_p_and_u" model="feed.industry">
+        <field name="name">Power and Utilities</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+     <record id="industry_record_agriculture" model="feed.industry">
+        <field name="name">Agriculture</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+     <record id="industry_record_pfp_and_p" model="feed.industry">
+        <field name="name">paper forest products and packing</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+    <record id="industry_record_l_and_infrastructure" model="feed.industry">
+        <field name="name">Logistics and Infrastructure</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+
+
+     <record id="industry_record_healthcare" model="feed.industry">
+        <field name="name">Healthcare</field>
+        <field name="industry_type">ls_and_healthcare</field>
+    </record>
+
+     <record id="industry_record_life_and_sciences" model="feed.industry">
+        <field name="name">Life Sciences</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+    <record id="industry_record_pharmaceuticals_supplements" model="feed.industry">
+        <field name="name">Pharmaceuticals Supplements</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+    <record id="industry_record_nutrition" model="feed.industry">
+        <field name="name">Nutrition</field>
+        <field name="industry_type">er_and_industrials</field>
+    </record>
+
+
+    <record id="industry_record_technology" model="feed.industry">
+        <field name="name">Technology</field>
+        <field name="industry_type">tm_and_telecom</field>
+    </record>
+    <record id="industry_record_telecom" model="feed.industry">
+        <field name="name">Telecom</field>
+        <field name="industry_type">tm_and_telecom</field>
+    </record>
+    <record id="industry_record_media_and_entertainment" model="feed.industry">
+        <field name="name">Media and Entertainment</field>
+        <field name="industry_type">tm_and_telecom</field>
+    </record>
+
+
+
+    <record id="industry_record_research_agency" model="feed.industry">
+        <field name="name">Research Agency</field>
+        <field name="industry_type">business_data_services</field>
+    </record>
+
+    <record id="industry_record_polling_company" model="feed.industry">
+        <field name="name">Polling Company</field>
+        <field name="industry_type">business_data_services</field>
+    </record>
+
+    <record id="industry_record_consulting_agency" model="feed.industry">
+        <field name="name">Consulting Agency</field>
+        <field name="industry_type">business_data_services</field>
+    </record>
+
+    <record id="industry_record_hr_gency" model="feed.industry">
+        <field name="name">HR Agency</field>
+        <field name="industry_type">business_data_services</field>
+    </record>
+
+    <record id="industry_record_marketing_agency" model="feed.industry">
+        <field name="name">Marketing Agency</field>
+        <field name="industry_type">business_data_services</field>
+    </record>
+
+
+
+
+</odoo>

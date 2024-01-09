@@ -1,0 +1,105 @@
+<odoo>
+    <data>
+        <record id="feed_job_order_form" model="ir.ui.view">
+            <field name="name">feed.job.order.form</field>
+            <field name="model">feed.job.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <style>
+                            #header_label {
+                            margin-bottom: 50px;
+                            margin-top: -25px;
+                            background-color: #f2f2f2;
+                            color: #333;
+                            font-size: 20px;
+                            font-weight: bold;
+                            padding: 10px;
+                            padding-left: 60px;
+                            }
+                        </style>
+                    </header>
+                    <sheet>
+                        <div class="row" id="header_label">
+                            <div class="col-12 text-center bold-label">
+                                Job Order Form
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="p_number"/>
+                                <field name="job_leader" string="Send By"/>
+                                <field name="assign_to" string="Assign To"/>
+                                <field name="project_id" invisible="1"/>
+                                <field name="type"/>
+                                <field name="project_brief"/>
+                                <field name="date_submitted_to_field"/>
+                            </group>
+                            <group>
+                                <field name="methodology" widget="many2many_tags"/>
+                                <field name="sample_size"/>
+                                <field name="quota"/>
+                                <field name="location"/>
+                                <field name="survey_link"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="field_team_requirement" string="Field Team Requirement">
+                                <field name="field_team_req" placeholder='Write Text Here'/>
+                            </page>
+                            <page name="data_processing_requirement" string="Data Processing Requirement">
+                                <field name="data_processing_req" placeholder='Write Text Here'/>
+                            </page>
+                            <page name="quality_control_requirement" string="Quality Control Requirement">
+                                <field name="quality_control" placeholder='Write Text Here'/>
+                            </page>
+
+                            <page name="fieldwork_schedule" string="Fieldwork Schedule">
+                                <field name="fieldwork_schedule">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="feed_job_order_tree" model="ir.ui.view">
+            <field name="name">feed.job.order.tree</field>
+            <field name="model">feed.job.order</field>
+            <field name="arch" type="xml">
+                <tree string="Job Order">
+                    <field name="name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="feed_job_order_action" model="ir.actions.act_window">
+            <field name="name">Job Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">feed.job.order</field>
+            <!--            <field name="domain">[('field_required','=','yes')]</field>-->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--        <menuitem id="feed_crm_field_menu" name="Project Modules" parent="crm.crm_menu_root"-->
+        <!--                  action="feed_crm_field_action" sequence="6"/>-->
+        <record id="project.open_view_project_all" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="project.view_project"/>
+        </record>
+
+    </data>
+</odoo>

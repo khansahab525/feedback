@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Task Stages -->
+    <record id="new_project_task_stage_new" model="project.task.type">
+        <field name="sequence">100</field>
+        <field name="name">New</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+    <record id="new_project_task_stage_in-progress" model="project.task.type">
+        <field name="sequence">200</field>
+        <field name="name">In progress</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+    <record id="new_project_task_stage_for-review" model="project.task.type">
+        <field name="sequence">300</field>
+        <field name="name">For review</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+    <record id="new_project_task_stage_done" model="project.task.type">
+        <field name="sequence">400</field>
+        <field name="name">Done</field>
+        <!--        <field name="case_default" eval="True"/>-->
+    </record>
+
+</odoo>

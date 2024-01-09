@@ -1,0 +1,88 @@
+<odoo>
+<!--    <data>-->
+<!--        <record id="feed_client_quote_form" model="ir.ui.view">-->
+<!--            <field name="name">feed_client_quote_form</field>-->
+<!--            <field name="model">feed.client.quote</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <header>-->
+<!--                        <button name="send_to_finance_approval" string="Send To Finance Approval" type="object"-->
+<!--                                class="btn-primary" groups="feed_crm.field_budget_draft_access"-->
+<!--                                attrs="{'invisible':[('state','!=','draft')]}"/>-->
+<!--                        <button name="send_to_research_approval" string="Approved" type="object"-->
+<!--                                class="btn-primary" groups="feed_crm.field_budget_finance_access"-->
+<!--                                attrs="{'invisible':[('state','!=','finance_approval')]}"/>-->
+<!--                        <button name="research_approved" string="Approved" type="object"-->
+<!--                                class="btn-primary" groups="feed_crm.field_budget_research_access"-->
+<!--                                attrs="{'invisible':[('state','!=','research_approval')]}"/>-->
+<!--                        <button name="reject_approval" string="Reject" type="object"-->
+<!--                                class="btn-primary"-->
+<!--                                groups="feed_crm.field_budget_finance_access,feed_crm.field_budget_draft_access"-->
+<!--                                attrs="{'invisible':['|',('state','=','draft'),('state','=','cancel'),('state','=','done')]}"/>-->
+<!--                        <button name="reset_to_draft" string="Reset To Draft" type="object"-->
+<!--                                class="btn-primary"-->
+<!--                                groups="feed_crm.field_budget_finance_access,feed_crm.field_budget_draft_access"-->
+<!--                                attrs="{'invisible':[('state','!=','cancel')]}"/>-->
+<!--                        <field name="state" widget="statusbar"/>-->
+<!--                    </header>-->
+<!--                    <sheet>-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="module"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                        <notebook>-->
+<!--                            <page string="Client Quote Items">-->
+<!--                                <field name="client_quote_item">-->
+<!--                                    <tree editable="bottom">-->
+<!--                                        <field name="item" string="Item"/>-->
+<!--                                        <field name="detail"/>-->
+<!--                                        <field name="cost" sum="Cost"/>-->
+<!--                                        <field name="cpu"/>-->
+<!--                                        <field name="quote"/>-->
+<!--                                        &lt;!&ndash;                                        <field name="currency"/>&ndash;&gt;-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                        </notebook>-->
+<!--                        <group name="note_group" col="6" class="mt-2 mt-md-0">-->
+<!--                            <group colspan="2">-->
+<!--                            </group>-->
+<!--                            <group colspan="2">-->
+<!--                            </group>-->
+<!--                            <group class="oe_subtotal_footer oe_right" colspan="2" name="field_footer">-->
+<!--                                <field name="total" for_save="1"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                        &lt;!&ndash;                        <group class="oe_subtotal_footer oe_left" colspan="2" name="safi_total">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        </group>&ndash;&gt;-->
+<!--                    </sheet>-->
+<!--                    <div class="oe_chatter">-->
+<!--                        <field name="message_follower_ids" groups="base.group_user"/>-->
+<!--                        <field name="activity_ids"/>-->
+<!--                        <field name="message_ids"/>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="feed_client_quote_tree" model="ir.ui.view">-->
+<!--            <field name="name">Client Quote</field>-->
+<!--            <field name="model">feed.client.quote</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="module"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="feed_client_quote_action" model="ir.actions.act_window">-->
+<!--            <field name="name">Client Quote</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">feed.client.quote</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--        </record>-->
+<!--        <menuitem id="feed_proposal_menu" name="Proposal" parent="crm.crm_menu_root"-->
+<!--                  action="feed_proposal_action" sequence="7"/>-->
+<!--    </data>-->
+</odoo>

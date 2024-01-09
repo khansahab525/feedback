@@ -1,0 +1,24 @@
+<odoo>
+    <record model="ir.ui.view" id="project_wizard_form">
+        <field name="name">project_wizard_form</field>
+        <field name="model">project.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_wizard_action" model="ir.actions.act_window">
+        <field name="name">project_wizard_action</field>
+        <field name="res_model">project.wizard</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

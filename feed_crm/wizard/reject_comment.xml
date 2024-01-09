@@ -1,0 +1,45 @@
+<odoo>
+    <record id="reject_comment_wizard_form" model="ir.ui.view">
+        <field name="name">reject.comment.wizard.form</field>
+        <field name="model">reject.comment.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <style>
+                        #header_label {
+                        margin-bottom: 50px;
+                        margin-top: -25px;
+                        background-color: #f2f2f2;
+                        color: #333;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 10px;
+                        padding-left: 60px;
+                        }
+                    </style>
+                </header>
+                <sheet>
+                    <div class="row" id="header_label">
+                        <div class="col-12 text-center bold-label">
+                            Reject Comment
+                        </div>
+                    </div>
+                    <field name="name"/>
+                </sheet>
+                <footer>
+                    <button name="btn_reject_comment" string="Ok" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="reject_comment_wizard_action" model="ir.actions.act_window">
+        <field name="name">Reject Commnent Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">reject.comment.wizard</field>
+        <!--            <field name="domain">[('field_required','=','yes')]</field>-->
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

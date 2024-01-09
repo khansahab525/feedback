@@ -1,0 +1,20 @@
+<odoo>
+    <record model="ir.module.category" id="feed_expense_group_category">
+        <field name="name">Feedback Expense</field>
+        <!--        <field name="description">User access levels for Overtime module</field>-->
+        <field name="sequence">11</field>
+    </record>
+
+    <record id="feed_expense_qc_manager_access" model="res.groups">
+        <field name="name">QC Manager</field>
+        <field name="category_id" ref="feed_expense_group_category"/>
+    </record>
+
+    <record id="feed_expense_commercial_director_access" model="res.groups">
+        <field name="name">Commercial Director</field>
+        <field name="category_id" ref="feed_expense_group_category"/>
+    </record>
+
+    <!-- Model Access Rights -->
+
+</odoo>

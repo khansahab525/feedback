@@ -1,0 +1,13 @@
+<odoo>
+<!--    <record id="feed_inherit_partner_view" model="ir.ui.view">-->
+<!--        <field name="name">feed_inherit_partner_view</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="base.view_partner_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//sheet/group/group[2]" position="inside">-->
+<!--                <field name="partner_code"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record model="crm.stage" id="crm.stage_lead1">
+            <field name="name">Expression of interest</field>
+            <field name="code">expression_of_interest</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record model="crm.stage" id="crm.stage_lead2">
+            <field name="name">Receive RFP</field>
+            <field name="code">receive_rfp</field>
+            <field name="sequence">2</field>
+
+        </record>
+
+        <record model="crm.stage" id="crm.stage_lead3">
+            <field name="name">Determine field quote</field>
+            <field name="code">determine_field_quote</field>
+            <field name="sequence">3</field>
+
+        </record>
+
+        <record model="crm.stage" id="crm_stage_approve_field_quote">
+            <field name="name">Approve field quote</field>
+            <field name="code">approve_field_quote</field>
+            <field name="sequence">4</field>
+
+        </record>
+
+        <record model="crm.stage" id="crm_stage_finish_writ_proposal">
+            <field name="name">Finish write proposal</field>
+            <field name="code">finish_write_proposal</field>
+            <field name="sequence">5</field>
+
+        </record>
+
+        <record model="crm.stage" id="crm_stage_review_proposal">
+            <field name="name">Review proposal</field>
+            <field name="code">review_proposal</field>
+            <field name="sequence">6</field>
+
+        </record>
+
+        <record model="crm.stage" id="crm_stage_sent_to_client">
+            <field name="name">Sent to client</field>
+            <field name="code">sent_to_client</field>
+            <field name="sequence">7</field>
+
+        </record>
+
+        <record model="crm.stage" id="crm_stage_follow_up">
+            <field name="name">Follow up</field>
+            <field name="code">follow_up</field>
+            <field name="sequence">8</field>
+
+        </record>
+
+    </data>
+</odoo>

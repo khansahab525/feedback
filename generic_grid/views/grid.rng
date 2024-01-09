@@ -1,0 +1,188 @@
+<!--# -*- coding: utf-8 -*-
+##############################################################################
+#
+#       Odoo Proprietary License v1.0
+#
+#       This software and associated files (the "Software") may only be used (executed,
+#       modified, executed after modifications) if you have purchased a valid license
+#       from the authors, typically via Odoo Apps, or if you have received a written
+#       agreement from the authors of the Software (see the COPYRIGHT file).
+#
+#       You may develop Odoo modules that use the Software as a library (typically
+#       by depending on it, importing it and using its resources), but without copying
+#       any source code or material from the Software. You may distribute those
+#       modules under the license of your choice, provided that this license is
+#       compatible with the terms of the Odoo Proprietary License (For example:
+#       LGPL, MIT, or proprietary licenses similar to this one).
+#
+#       It is forbidden to publish, distribute, sublicense, or sell copies of the Software
+#       or modified copies of the Software.
+#
+#       The above copyright notice and this permission notice must be included in all
+#       copies or substantial portions of the Software.
+#
+#       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#       IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#       FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+#       IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+#       DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+#       ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#       DEALINGS IN THE SOFTWARE.
+#
+##############################################################################-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <ref name="grid"/>
+    </start>
+    <define name="grid">
+        <element name="grid">
+            <ref name="acl"/>
+            <attribute name="string"/>
+            <optional>
+                <attribute name="adjustment">
+                    <choice>
+                        <value>object</value>
+                        <value>action</value>
+                    </choice>
+                </attribute>
+                <attribute name="adjust_name"/>
+            </optional>
+            <interleave>
+                <oneOrMore><ref name="field"/></oneOrMore>
+                <zeroOrMore><ref name="button"/></zeroOrMore>
+                <optional>
+                    <element name="empty">
+                        <oneOrMore>
+                            <element name="p">
+                                <optional>
+                                    <attribute name="class"/>
+                                </optional>
+                                <interleave>
+                                    <text/>
+                                    <zeroOrMore>
+                                        <ref name="link"/>
+                                    </zeroOrMore>
+                                    <zeroOrMore>
+                                        <ref name="image"/>
+                                    </zeroOrMore>
+                                </interleave>
+                            </element>
+                        </oneOrMore>
+                    </element>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+    <define name="field">
+        <element name="field">
+            <attribute name="name"/>
+            <choice>
+                <group>
+                    <attribute name="type"><value>row</value></attribute>
+                    <optional>
+                        <attribute name="section">
+                            <value>1</value>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="invisible">
+                        </attribute>
+                    </optional>
+                </group>
+                <group>
+                    <attribute name="type"><value>col</value></attribute>
+                    <zeroOrMore>
+                        <element name="range">
+                            <attribute name="name"/>
+                            <attribute name="string"/>
+                            <attribute name="span"/>
+                            <attribute name="step"/>
+                        </element>
+                    </zeroOrMore>
+                </group>
+                <group>
+                    <attribute name="type"><value>measure</value></attribute>
+                    <optional>
+                        <attribute name="widget"/>
+                    </optional>
+                </group>
+            </choice>
+            <!-- other garbage -->
+            <optional><attribute name="on_change"/></optional>
+            <optional><attribute name="modifiers"/></optional>
+            <optional><attribute name="can_create"/></optional>
+            <optional><attribute name="can_write"/></optional>
+        </element>
+    </define>
+    <define name="button">
+        <element name="button">
+            <attribute name="string"/>
+            <attribute name="type">
+                <choice>
+                    <value>object</value>
+                    <value>action</value>
+                </choice>
+            </attribute>
+            <attribute name="name"/>
+            <optional><attribute name="class"/></optional>
+            <optional><attribute name="context"/></optional>
+        </element>
+    </define>
+    <define name="acl">
+        <optional>
+            <attribute name="create">
+                <choice>
+                    <value>true</value>
+                    <value>false</value>
+                </choice>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="edit">
+                <choice>
+                    <value>true</value>
+                    <value>false</value>
+                </choice>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="delete">
+                <choice>
+                    <value>true</value>
+                    <value>false</value>
+                </choice>
+            </attribute>
+        </optional>
+    </define>
+    <define name="image">
+        <element name="img">
+            <attribute name="src"/>
+            <optional>
+                <attribute name="class"/>
+            </optional>
+            <optional>
+                <attribute name="alt"/>
+            </optional>
+            <optional>
+                <attribute name="style"/>
+            </optional>
+        </element>
+    </define>
+    <define name="link">
+        <element name="a">
+            <attribute name="href"/>
+            <optional>
+                <attribute name="class"/>
+            </optional>
+            <optional>
+                <attribute name="target"/>
+            </optional>
+            <mixed>
+                <zeroOrMore>
+                    <ref name="image"/>
+                </zeroOrMore>
+            </mixed>
+        </element>
+    </define>
+</grammar>
